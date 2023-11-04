@@ -39,7 +39,13 @@ public class StudentController {
     }
 
     @GetMapping
-    public Collection<Student> readByAge(@RequestParam int age){
+    public Collection<Student> readByAge(@RequestParam int age) {
         return studentService.readByAge(age);
+    }
+
+    @GetMapping("/age")
+    public Collection<Student> readByAgeBetween(@RequestParam int minAge,
+                                                @RequestParam int maxAge) {
+        return studentService.readByAgeBetween(minAge, maxAge);
     }
 }
